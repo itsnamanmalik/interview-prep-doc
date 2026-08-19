@@ -1,0 +1,13 @@
+[project]
+name = "senior-dev-interview-handbook"
+version = "0.1.0"
+description = "MkDocs port of the Senior Dev Interview Handbook."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mkdocs-glightbox",
+    "mkdocs-material>=9.5",
+]
+
+[tool.uv]
+package = false

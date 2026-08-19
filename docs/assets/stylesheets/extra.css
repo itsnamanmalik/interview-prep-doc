@@ -1,0 +1,89 @@
+/* Slightly tighter question headings, since most pages are Q&A lists. */
+.md-typeset h3 {
+  margin-top: 1.6em;
+}
+
+/* Keep wide code samples and tables scrollable instead of pushing the page. */
+.md-typeset pre,
+.md-typeset table:not([class]) {
+  max-width: 100%;
+}
+
+.md-typeset .md-typeset__table {
+  overflow-x: auto;
+}
+
+/* Cover images carried over from the source doc. */
+.md-typeset img.cover-photo {
+  width: 100%;
+  border-radius: 0.2rem;
+}
+
+/*
+ * The red "Watch Video" buttons carried over from the source doc. The YouTube
+ * URLs were recovered from the PDF's link annotations, so these are real links.
+ */
+.md-typeset a.watch-video {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.25em 0.75em;
+  border-radius: 0.15rem;
+  background-color: #c4302b;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: background-color 125ms;
+}
+
+.md-typeset a.watch-video:hover,
+.md-typeset a.watch-video:focus-visible {
+  background-color: #a02722;
+  color: #fff;
+}
+
+/* Figures (the recreated diagrams and the carried-over cover photo). */
+.md-typeset figure {
+  margin: 1.4em auto;
+  text-align: center;
+}
+
+.md-typeset figure img {
+  max-width: 100%;
+  height: auto;
+}
+
+.md-typeset figure figcaption {
+  margin-top: 0.6em;
+  font-size: 0.75rem;
+  font-style: italic;
+  opacity: 0.75;
+}
+
+/*
+ * Click-to-zoom affordance. Images are wrapped in a glightbox anchor at build
+ * time, so this cues that they open in a lightbox rather than navigating away.
+ */
+.md-typeset a.glightbox {
+  cursor: zoom-in;
+  display: inline-block;
+  line-height: 0;
+}
+
+.md-typeset a.glightbox img {
+  transition: opacity 125ms;
+}
+
+.md-typeset a.glightbox:hover img {
+  opacity: 0.88;
+}
+
+/*
+ * Both recreated diagrams are legible on a light or a dark page without needing
+ * a backdrop: the Kubernetes one paints its own dark panel, and every label in
+ * the CAP diagram sits on an opaque circle fill. So no background is set here —
+ * that also keeps them correct when the theme is switched manually, which a
+ * prefers-color-scheme rule would not.
+ */

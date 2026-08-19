@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg  width="520" height="430" viewBox="0 0 520 430" role="img" aria-labelledby="cap-title cap-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="cap-title">CAP theorem Venn diagram</title>
+  <desc id="cap-desc">Three overlapping circles labelled Consistency, Availability and Partitioning. The pairwise overlaps are labelled CA, CP and AP; the centre where all three meet is crossed out, showing that all three cannot be guaranteed at once.</desc>
+  <g fill-opacity="0.72">
+    <circle cx="260" cy="150" r="118" fill="#7ec07e"/>
+    <circle cx="188" cy="278" r="118" fill="#7ec3e6"/>
+    <circle cx="332" cy="278" r="118" fill="#f2c879"/>
+  </g>
+  <g fill="#1b1b1b" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" text-anchor="middle">
+    <text x="260" y="86" font-size="19" font-weight="700">Consistency</text>
+    <text x="260" y="114" font-size="13">All clients see the</text>
+    <text x="260" y="132" font-size="13">same view of data,</text>
+    <text x="260" y="150" font-size="13">even right after</text>
+    <text x="260" y="168" font-size="13">update or delete</text>
+
+    <text x="143" y="262" font-size="19" font-weight="700">Availability</text>
+    <text x="143" y="290" font-size="13">All clients can find a</text>
+    <text x="143" y="308" font-size="13">replica of data, even</text>
+    <text x="143" y="326" font-size="13">in case of partial</text>
+    <text x="143" y="344" font-size="13">node failures</text>
+
+    <text x="379" y="262" font-size="19" font-weight="700">Partitioning</text>
+    <text x="379" y="290" font-size="13">The system continues</text>
+    <text x="379" y="308" font-size="13">to work as expected,</text>
+    <text x="379" y="326" font-size="13">even in presence of</text>
+    <text x="379" y="344" font-size="13">partial network failure</text>
+
+    <text x="203" y="219" font-size="17">CA</text>
+    <text x="317" y="219" font-size="17">CP</text>
+    <text x="260" y="292" font-size="17">AP</text>
+    <text x="260" y="245" font-size="21" font-weight="700" fill="#d3352b">&#10005;</text>
+  </g>
+</svg>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg  width="940" height="650" viewBox="0 0 940 650" role="img" aria-labelledby="k8s-title k8s-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="k8s-title">Kubernetes cluster architecture</title>
+  <desc id="k8s-desc">An Admin UI and a CLI talk to the Control Plane. The Control Plane contains the Controller Manager, Scheduler and etcd, which all feed the API Server. The API Server drives two Worker Nodes. Each Worker Node runs two Pods containing containers, plus a container runtime, a kubelet and a kube-proxy.</desc>
+  <defs>
+    <marker id="k8sArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5aa9d6"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="940" height="650" rx="10" fill="#212121"/>
+
+  <g font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" text-anchor="middle">
+
+    <rect x="338" y="18" width="252" height="72" rx="7" fill="none" stroke="#5aa9d6" stroke-width="1.5"/>
+    <rect x="352" y="28" width="104" height="40" rx="4" fill="none" stroke="#5aa9d6" stroke-width="1.5"/>
+    <rect x="472" y="28" width="104" height="40" rx="4" fill="none" stroke="#5aa9d6" stroke-width="1.5"/>
+    <text x="404" y="53" font-size="15" fill="#dcdcdc">&#9906;</text>
+    <text x="524" y="53" font-size="15" fill="#dcdcdc">&gt;_</text>
+    <text x="404" y="84" font-size="12" fill="#dcdcdc">Admin UI</text>
+    <text x="524" y="84" font-size="12" fill="#dcdcdc">CLI</text>
+
+    <path d="M 404 92 L 424 126" stroke="#5aa9d6" stroke-width="1.6" fill="none" marker-end="url(#k8sArrow)"/>
+    <path d="M 524 92 L 468 126" stroke="#5aa9d6" stroke-width="1.6" fill="none" marker-end="url(#k8sArrow)"/>
+
+    <rect x="180" y="130" width="520" height="176" rx="7" fill="none" stroke="#f2c744" stroke-width="1.5"/>
+    <rect x="196" y="140" width="488" height="30" rx="4" fill="#f2c744"/>
+    <text x="440" y="160" font-size="14" font-weight="700" fill="#1b1b1b">Control Plane</text>
+
+    <rect x="244" y="186" width="120" height="46" rx="4" fill="#f2c744"/>
+    <text x="304" y="205" font-size="12" font-weight="700" fill="#1b1b1b">Controller</text>
+    <text x="304" y="221" font-size="12" font-weight="700" fill="#1b1b1b">Manager</text>
+    <rect x="380" y="186" width="120" height="46" rx="4" fill="#f2c744"/>
+    <text x="440" y="214" font-size="12" font-weight="700" fill="#1b1b1b">Scheduler</text>
+    <rect x="516" y="186" width="120" height="46" rx="4" fill="#f2c744"/>
+    <text x="576" y="214" font-size="12" font-weight="700" fill="#1b1b1b">etcd</text>
+
+    <path d="M 304 234 L 400 260" stroke="#5aa9d6" stroke-width="1.6" fill="none" marker-end="url(#k8sArrow)"/>
+    <path d="M 440 234 L 440 260" stroke="#5aa9d6" stroke-width="1.6" fill="none" marker-end="url(#k8sArrow)"/>
+    <path d="M 576 234 L 484 260" stroke="#5aa9d6" stroke-width="1.6" fill="none" marker-end="url(#k8sArrow)"/>
+
+    <rect x="372" y="264" width="136" height="34" rx="4" fill="#f2c744"/>
+    <text x="440" y="286" font-size="13" font-weight="700" fill="#1b1b1b">API Server</text>
+
+    <path d="M 400 306 L 250 374" stroke="#5aa9d6" stroke-width="1.6" fill="none" marker-end="url(#k8sArrow)"/>
+    <path d="M 480 306 L 690 374" stroke="#5aa9d6" stroke-width="1.6" fill="none" marker-end="url(#k8sArrow)"/>
+
+    <rect x="60" y="380" width="380" height="240" rx="7" fill="none" stroke="#4db6a0" stroke-width="1.5"/>
+    <rect x="80" y="396" width="166" height="96" rx="4" fill="#2b2b2b" stroke="#8a8a8a" stroke-width="1.2"/>
+    <text x="163" y="414" font-size="12" fill="#e4e4e4">Pod 1</text>
+    <rect x="92" y="422" width="142" height="26" rx="3" fill="#f2c744"/>
+    <text x="163" y="440" font-size="11" fill="#1b1b1b">container 1</text>
+    <rect x="92" y="456" width="142" height="26" rx="3" fill="#f2c744"/>
+    <text x="163" y="474" font-size="11" fill="#1b1b1b">container 2</text>
+    <rect x="256" y="396" width="164" height="96" rx="4" fill="#2b2b2b" stroke="#8a8a8a" stroke-width="1.2"/>
+    <text x="338" y="414" font-size="12" fill="#e4e4e4">Pod 2</text>
+    <rect x="268" y="422" width="140" height="26" rx="3" fill="#e8e8e8"/>
+    <text x="338" y="440" font-size="11" fill="#1b1b1b">container 1</text>
+    <rect x="80" y="502" width="340" height="28" rx="3" fill="#4db6a0"/>
+    <text x="250" y="521" font-size="12" fill="#12312b">container runtime</text>
+    <rect x="80" y="540" width="164" height="28" rx="3" fill="#e07b7b"/>
+    <text x="162" y="559" font-size="12" fill="#2b0f0f">kubelet</text>
+    <rect x="256" y="540" width="164" height="28" rx="3" fill="#e07b7b"/>
+    <text x="338" y="559" font-size="12" fill="#2b0f0f">kube-proxy</text>
+    <rect x="80" y="578" width="340" height="28" rx="3" fill="#4db6a0"/>
+    <text x="250" y="597" font-size="12" font-weight="700" fill="#12312b">Worker Node 1</text>
+
+    <rect x="500" y="380" width="380" height="240" rx="7" fill="none" stroke="#4db6a0" stroke-width="1.5"/>
+    <rect x="520" y="396" width="166" height="96" rx="4" fill="#2b2b2b" stroke="#8a8a8a" stroke-width="1.2"/>
+    <text x="603" y="414" font-size="12" fill="#e4e4e4">Pod 1</text>
+    <rect x="532" y="422" width="142" height="26" rx="3" fill="#e8e8e8"/>
+    <text x="603" y="440" font-size="11" fill="#1b1b1b">container 1</text>
+    <rect x="696" y="396" width="164" height="96" rx="4" fill="#2b2b2b" stroke="#8a8a8a" stroke-width="1.2"/>
+    <text x="778" y="414" font-size="12" fill="#e4e4e4">Pod 2</text>
+    <rect x="708" y="422" width="140" height="26" rx="3" fill="#f2c744"/>
+    <text x="778" y="440" font-size="11" fill="#1b1b1b">container 1</text>
+    <rect x="708" y="456" width="140" height="26" rx="3" fill="#f2c744"/>
+    <text x="778" y="474" font-size="11" fill="#1b1b1b">container 2</text>
+    <rect x="520" y="502" width="340" height="28" rx="3" fill="#4db6a0"/>
+    <text x="690" y="521" font-size="12" fill="#12312b">container runtime</text>
+    <rect x="520" y="540" width="164" height="28" rx="3" fill="#e07b7b"/>
+    <text x="602" y="559" font-size="12" fill="#2b0f0f">kubelet</text>
+    <rect x="696" y="540" width="164" height="28" rx="3" fill="#e07b7b"/>
+    <text x="778" y="559" font-size="12" fill="#2b0f0f">kube-proxy</text>
+    <rect x="520" y="578" width="340" height="28" rx="3" fill="#4db6a0"/>
+    <text x="690" y="597" font-size="12" font-weight="700" fill="#12312b">Worker Node 2</text>
+  </g>
+</svg>

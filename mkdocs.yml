@@ -1,0 +1,193 @@
+site_name: Senior Dev Interview Handbook
+site_description: >-
+  Interview preparation handbook covering Python, data structures and algorithms,
+  Django, FastAPI, databases, system design, DevOps and AI/LLM engineering.
+site_author: Naman Malik
+
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+
+theme:
+  name: material
+  language: en
+  icon:
+    logo: material/book-open-page-variant
+    repo: fontawesome/brands/github
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tooltips
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+hooks:
+  - hooks/open_in_new_tab.py
+
+plugins:
+  - search
+  # Click any image to open it in a zoomable lightbox. The plugin ships
+  # glightbox's JS/CSS inside the package, so this adds no external requests.
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      auto_caption: true
+      caption_position: bottom
+      background: rgba(0, 0, 0, 0.85)
+      shadow: true
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 4
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra:
+  generator: false
+
+nav:
+  - Home: index.md
+  - Python:
+      - python/index.md
+      - General Questions: python/general-questions.md
+      - Advanced Python: python/advanced-python.md
+      - Object Oriented Programming: python/object-oriented-programming.md
+      - Decorators: python/decorators.md
+      - Generators: python/generators.md
+      - Iterators: python/iterators.md
+      - Monkey Patching: python/monkey-patching.md
+      - Design Patterns: python/design-patterns.md
+      - Async.IO: python/asyncio.md
+      - Threads & Multiprocessing: python/threads-and-multiprocessing.md
+      - Magic & Dunder Methods: python/magic-and-dunder-methods.md
+      - Property Decorator – @property: python/property-decorator.md
+      - Pandas: python/pandas.md
+      - PySpark: python/pyspark.md
+  - Data Structures & Algorithms:
+      - dsa/index.md
+      - Search Algorithms: dsa/search-algorithms.md
+      - Sorting Algorithms: dsa/sorting-algorithms.md
+      - Graphs: dsa/graphs.md
+      - Trees: dsa/trees.md
+  - Django:
+      - backend-django/index.md
+      - General Questions: backend-django/general-questions.md
+      - Celery: backend-django/celery.md
+      - Unit Testing: backend-django/unit-testing.md
+      - Websockets / Channels: backend-django/websockets-channels.md
+      - Message Queue (Kafka): backend-django/message-queue-kafka.md
+      - Nginx: backend-django/nginx.md
+  - FastAPI:
+      - fastapi/index.md
+      - General Questions: fastapi/general-questions.md
+      - Main Features: fastapi/main-features.md
+      - FastAPI vs Django: fastapi/fastapi-vs-django.md
+      - Async & Concurrency: fastapi/async-and-concurrency.md
+      - Dependency Injection: fastapi/dependency-injection.md
+      - Pydantic: fastapi/pydantic.md
+      - SQLAlchemy: fastapi/sqlalchemy.md
+      - Alembic: fastapi/alembic.md
+      - Authentication & Security: fastapi/authentication-and-security.md
+      - Background Tasks & Email: fastapi/background-tasks-and-email.md
+      - Testing: fastapi/testing.md
+      - Deployment & Performance: fastapi/deployment-and-performance.md
+  - Database:
+      - database/index.md
+      - General Questions: database/general-questions.md
+      - ACID Properties: database/acid-properties.md
+      - Query Planner: database/query-planner.md
+      - SQL Queries Questions: database/sql-queries-questions.md
+      - Monitor & Improve Performance: database/monitor-and-improve-performance.md
+      - Read Replica DB: database/read-replica-db.md
+      - Scaling Database: database/scaling-database.md
+      - Database Partitioning: database/database-partitioning.md
+      - CAP Theorem: database/cap-theorem.md
+  - System Design:
+      - system-design/index.md
+      - How to Answer Interview Questions: system-design/how-to-answer-interview-questions.md
+      - Design a Rate Limiter: system-design/design-a-rate-limiter.md
+      - Dirty Read: system-design/dirty-read.md
+      - Centralised Locking: system-design/centralised-locking.md
+  - DevOps:
+      - devops/index.md
+      - Docker: devops/docker.md
+      - Kubernetes: devops/kubernetes.md
+      - AWS Tools: devops/aws-tools.md
+  - AI/LLM Engineering:
+      - ai-llm-engineering/index.md
+      - LLM Basics: ai-llm-engineering/llm-basics.md
+      - Choosing the Right Model: ai-llm-engineering/choosing-a-model.md
+      - Prompting & Context: ai-llm-engineering/prompting-and-context.md
+      - RAG: ai-llm-engineering/rag.md
+      - Scaling Production RAG: ai-llm-engineering/scaling-production-rag.md
+      - Fine-Tuning vs RAG: ai-llm-engineering/fine-tuning-vs-rag.md
+      - Agentic AI: ai-llm-engineering/agentic-ai.md
+      - MCP & Skills: ai-llm-engineering/mcp-and-skills.md
+      - LangChain: ai-llm-engineering/langchain.md
+      - LangGraph: ai-llm-engineering/langgraph.md
+      - AI Infra & Architecture: ai-llm-engineering/ai-infra-and-architecture.md
+      - Evaluation & Observability: ai-llm-engineering/evaluation-and-observability.md
+      - Safety & Guardrails: ai-llm-engineering/safety-and-guardrails.md
+      - Interview Questions: ai-llm-engineering/interview-questions.md
