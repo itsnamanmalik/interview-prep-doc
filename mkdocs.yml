@@ -3,6 +3,10 @@ site_description: >-
   Interview preparation handbook covering Python, data structures and algorithms,
   Django, FastAPI, databases, system design, DevOps and AI/LLM engineering.
 site_author: Naman Malik
+# Set at build time by CI to the real GitHub Pages URL. The default keeps local
+# `mkdocs serve` correct. Material needs site_url for instant navigation and for
+# absolute URLs in sitemap.xml.
+site_url: !ENV [SITE_URL, "http://127.0.0.1:8000/"]
 
 docs_dir: docs
 site_dir: site

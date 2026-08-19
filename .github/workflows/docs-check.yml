@@ -1,0 +1,36 @@
+name: Docs check
+
+# Builds the site on pull requests without deploying, so a broken internal link,
+# a page missing from the nav, or a bad config fails review rather than main.
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+
+      - name: Install uv and restore its cache
+        uses: astral-sh/setup-uv@v10
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+          python-version: "3.11"
+
+      - name: Install dependencies from the lockfile
+        run: uv sync --frozen
+
+      - name: Build the site strictly
+        run: uv run mkdocs build --strict

@@ -62,5 +62,33 @@ done at build time by [hooks/open_in_new_tab.py](hooks/open_in_new_tab.py) rathe
 than with JavaScript, so it works with JS disabled. Internal page links are left
 alone deliberately — retargeting those would spawn a tab on every nav click.
 
+## Deployment
+
+Pushes to `main` build the site and publish it to GitHub Pages via
+[.github/workflows/deploy-docs.yml](.github/workflows/deploy-docs.yml). Pull
+requests run [.github/workflows/docs-check.yml](.github/workflows/docs-check.yml),
+which builds with `--strict` but does not deploy, so a broken internal link or a
+page missing from the nav fails review rather than `main`.
+
+One-time repo setup: **Settings -> Pages -> Build and deployment -> Source:
+"GitHub Actions"**. The workflow's `configure-pages` step also tries to set this
+through the API on first run, but the UI is the reliable path.
+
+Both workflows install dependencies with `uv sync --frozen`, so CI fails if
+`uv.lock` has drifted from `pyproject.toml` instead of silently resolving a
+different dependency set.
+
+`site_url` in `mkdocs.yml` is read from the `SITE_URL` environment variable:
+
+```yaml
+site_url: !ENV [SITE_URL, "http://127.0.0.1:8000/"]
+```
+
+The deploy workflow sets it to the real Pages URL reported by `configure-pages`,
+so the same config produces correct absolute URLs on a project site served from a
+subpath (`https://<user>.github.io/<repo>/`) and correct local URLs under
+`mkdocs serve`. Material needs `site_url` for instant navigation and for
+absolute links in `sitemap.xml`.
+
 See [PORTING_STATUS.md](PORTING_STATUS.md) for the page-by-page breakdown, how
 the links were verified, and which source typos were kept deliberately.
