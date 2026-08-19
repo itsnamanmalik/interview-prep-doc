@@ -12,13 +12,6 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# Least privilege: read the repo, write a Pages deployment, and mint the OIDC
-# token that deploy-pages exchanges for its upload credentials.
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 # One deployment at a time. cancel-in-progress stays false so an in-flight
 # publish is never killed half-way; queued runs just wait their turn.
 concurrency:
@@ -29,12 +22,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    # Read the repo, and write Pages settings for configure-pages' enablement
+    # call. No id-token here: this job never talks to the deployment API.
+    permissions:
+      contents: read
+      pages: write
     steps:
       - name: Check out the repository
         uses: actions/checkout@v7
 
       - name: Install uv and restore its cache
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.0.1
         with:
           enable-cache: true
           cache-dependency-glob: uv.lock
@@ -70,6 +68,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    # id-token: write is what deploy-pages exchanges via OIDC for its upload
+    # credentials. Without it the deploy fails on the token, not the artifact.
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

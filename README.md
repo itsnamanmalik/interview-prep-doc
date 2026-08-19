@@ -78,6 +78,12 @@ Both workflows install dependencies with `uv sync --frozen`, so CI fails if
 `uv.lock` has drifted from `pyproject.toml` instead of silently resolving a
 different dependency set.
 
+`astral-sh/setup-uv` is pinned to the exact tag `v10.0.1`, not `v10`: it stopped
+publishing moving major tags after `v7`, so `@v10` does not resolve even though
+`v10.0.1` is the current release. When bumping it, check that the ref exists
+(`git ls-remote --tags https://github.com/astral-sh/setup-uv`) rather than
+assuming the major tag tracks the release.
+
 `site_url` in `mkdocs.yml` is read from the `SITE_URL` environment variable:
 
 ```yaml
